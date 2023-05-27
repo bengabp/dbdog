@@ -1,0 +1,13 @@
+{
+    "clusters":[
+        {   
+            "name":"My Cluster",
+            "connString":"MONGO_CONN_STRING",
+            "isHidden":true,
+            "action":"backup",
+            "delayTime":24,
+        }
+    ],
+    "logsDir":"logs",
+    "dumpPath":"/workspace/backups"
+}
