@@ -5,7 +5,7 @@
             "connString":"MONGO_CONN_STRING",
             "isHidden":true,
             "action":"backup",
-            "delayTime":2
+            "delayTime":48
         }
     ],
     "logsDir":"logs",
