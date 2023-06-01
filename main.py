@@ -108,12 +108,13 @@ class DBDOG:
 
     def cluster_action(self,name:str,action:str,delay_time:int,conn_string:str) -> None:
         cluster_action_logger = self.create_logger(name,name+".log")
-        dump_date = datetime.now().strftime("%H:%M__%b_%d_%Y") # '15:56 - May 27,2023'
         BACKUP_DIR = '/workspace/linuxpro/backups'
-        BACKUP_PATH = os.path.join(BACKUP_DIR,f"dump_{dump_date}.tar.gz")
-        command = f"mongodump {conn_string} --gzip --archive='{BACKUP_PATH}'"
-        
+             
         while True:
+            dump_date = datetime.now().strftime("%H:%M__%b_%d_%Y") # '15:56 - May 27,2023'
+            BACKUP_PATH = os.path.join(BACKUP_DIR,f"dump_{dump_date}.tar.gz")
+            command = f"mongodump {conn_string} --gzip --archive='{BACKUP_PATH}'"
+
             cluster_action_logger.info(f"Backing up {name} to {BACKUP_PATH}")
             start_time = time.time()
             os.system(command)
